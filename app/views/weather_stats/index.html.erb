@@ -1,0 +1,62 @@
+<div class="text-center">
+  <%= form_tag "/", method: :get, class: "search-form" do %>
+    <span class="heading-text">Weather in your city</span>
+    <input type="text" name="q" id="q" value="<%= params[:q] %>">
+    <button type="submit" class="search-btn">Search</button>
+  <% end %>
+</div>
+<div class="d-flex justify-center" id='hide-default-table-data'>
+  <% @results.each do |data| %>
+    <div style="margin: 5px">
+      <table border="2">
+        <tr>
+          <th colspan="2">Date: <%= data[:date].to_date.strftime("%d-%m-%y") || 'NA' %></th>
+        </tr>
+        <tr>
+          <th colspan="2">Temprature</th>
+        </tr>
+        <tr>
+          <th>Min</th>
+          <th>Max</th>
+        </tr>
+        <tr>
+          <td><%= data[:min_temp] || 'NA' %></td>
+          <td><%= data[:max_temp] || 'NA' %></td>
+        </tr>
+        <tr>
+          <td>Presure</td>
+          <td><%= data[:pressure] || 'NA' %></td>
+        </tr>
+        <tr>
+          <td>Humidity</td>
+          <td><%= data[:humidity] || 'NA' %></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+</div>
+
+<!--I was trying with ajax request for city data with loader but due to some bug and lack of time i am continuing with form-->
+
+<!--<div id="city-weather-stats">-->
+
+<!--</div>-->
+
+<!--<script type="text/javascript" charset="utf-8">-->
+<!--function getCityWeatherStats() {-->
+<!--  const keyword = $('#q').val()-->
+<!--  $.ajax({-->
+<!--    type: "GET",-->
+<!--    url: "/",-->
+<!--    data: {q: keyword},-->
+<!--    success: function(data){-->
+<!--     $('#hide-default-table-data').hide();-->
+<!--     $('#city-weather-stats').append(data);-->
+
+<!--    },-->
+<!--    error: function(error){-->
+<!--      console.log('error')-->
+<!--    }-->
+<!--  })-->
+<!--}-->
+<!--</script>-->
