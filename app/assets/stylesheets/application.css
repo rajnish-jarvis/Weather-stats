@@ -38,6 +38,11 @@
 .search-form input{
     height: 30px;
 }
+.date-header{
+    background: #e87520;
+    padding: 4px 15px 4px 15px;
+}
+/*Mobile Responsive css here*/
 @media only screen and (max-width: 600px) {
   .d-flex{
       display: unset;
