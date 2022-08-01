@@ -16,6 +16,7 @@ module ApplicationConcern
         humidity: data['main']['humidity']
       }
     end
+    # Get weather report of each day uniquely from list
     @results = @results.uniq {|w| w[:date].split(' ')[0]}.take(5)
   end
 
