@@ -16,7 +16,7 @@ module ApplicationConcern
         humidity: data['main']['humidity']
       }
     end
-    @results = @results.uniq {|w| w[:date].split(' ')[0]}
+    @results = @results.uniq {|w| w[:date].split(' ')[0]}.take(5)
   end
 
   end
